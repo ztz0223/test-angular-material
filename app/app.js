@@ -4,7 +4,7 @@
 var ApplicationConfiguration = (function () {
     // Init module configuration options
     var applicationModuleName = 'ang_html';
-    var applicationModuleVendorDependencies = ['ui.router', 'ng-admin'];
+    var applicationModuleVendorDependencies = ['ui.router', 'ngMaterial'];
 
     // Add a new vertical module
     var registerModule = function (moduleName, dependencies) {
@@ -32,13 +32,7 @@ ApplicationConfiguration.registerModule('newApp1', []);
 
 angular
     .module('newApp1')
-    .config(routeConfig)
-    .config(['NgAdminConfigurationProvider', function (NgAdminConfigurationProvider) {
-        // create the admin application
-        var admin = NgAdminConfigurationProvider.application('My First Admin')
-            .baseApiUrl('/xxx');
-        NgAdminConfigurationProvider.configure(admin);
-    }]);
+    .config(routeConfig);
 
 
 routeConfig.$inject = ['$stateProvider'];
